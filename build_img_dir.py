@@ -3,25 +3,38 @@ from bs4 import BeautifulSoup
 import time
 import json
 
+# delay between requests, in seconds
 REQUEST_DELAY = 2
-# must set this to true in order to do category pages
+# Do scraping on sitemap page listing site categorys
 DO_CATEGORYS = True
+# Write scraped data to text file for later use (json format)
 WRITE_CATEGORYS = True
+# Do scraping on collected category listing pages
 DO_CATEGORY_PAGES = True
+# Write scraped data to text file for later use (json format)
 WRITE_CATEGORY_PAGES = True
+# Do scraping on collected article pages, also writes to text file for later use (json format)
+DO_PAGES = True
+# delay between failed request retrys
 RETRY_DELAY = 20
+# amount of attempts to make before giving up
 RETRY_ATTEMPTS = 4
 
 
 def get_soup(url: str):
     page = requests.get(url)
-    assert page.status_code == 200, "got a non ok response"
+    assert page.status_code == 200, f"got a non ok response ({page.status_code})"
     return BeautifulSoup(page.content, 'html.parser')
 
 
-def save_data_as_str(data, path):
+def save_data(data, path):
     with open(path, 'w+') as f:
         json.dump(data, f)
+
+
+def load_data(path):
+    with open(path, 'r') as f:
+        return json.load(f)
 
 
 if DO_CATEGORYS:
@@ -35,9 +48,12 @@ if DO_CATEGORYS:
             category_array.append({"category": a_tag.text, "link": f"https://www.wikihow.com{a_tag['href']}"})
 
     if WRITE_CATEGORYS:
-        save_data_as_str(category_array, './category_dir.txt')
+        save_data(category_array, './category_dir.txt')
 
 if DO_CATEGORY_PAGES:
+    if 'category_array' not in locals():
+        category_array = load_data('./category_dir.txt')
+
     category_page_array = []
     # request all category pages and get article links listed
     for i, category in enumerate(category_array):
@@ -53,8 +69,9 @@ if DO_CATEGORY_PAGES:
                     print(f"Request failed, retrying in {RETRY_DELAY} (attempt #{retry+1}/{RETRY_ATTEMPTS})")
                     time.sleep(RETRY_DELAY)
                 else:
-                    print("Maximum retry attempts reached, saving progress and exiting")
-                    save_data_as_str(category_page_array, 'category_page_dir_incomplete.txt')
+                    print("Maximum retry attempts reached, exiting...")
+                    if WRITE_CATEGORY_PAGES:
+                        save_data(category_page_array, 'category_page_dir_incomplete.txt')
                     exit()
         responsive_thumbs = category_soup.find_all(class_='responsive_thumb')
         for responsive_thumb in responsive_thumbs:
@@ -63,4 +80,6 @@ if DO_CATEGORY_PAGES:
             category_page_array.append({'link': a_tag['href'], 'title': title, 'category': category['category']})
 
     if WRITE_CATEGORY_PAGES:
-        save_data_as_str(category_page_array, 'category_page_dir.txt')
+        save_data(category_page_array, 'category_page_dir.txt')
+
+if DO_PAGES:
