@@ -14,7 +14,7 @@
             <li>Guess the correct article name to go with the provided image</li>
             <li>Every time you guess an incorrect name you will lose a life</li>
             <li>Use the "hint" button to get another image from the article to help your guess, you may only use 4 hints per game</li>
-            <li>The game ends when you either run out of hearts or the timer runs out of time</li>
+            <li>The game ends when you either run out of lives or the timer runs out of time</li>
         </ul>
         <button id="start_button" class="btn btn-info" onclick="startGame()" disabled>
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
@@ -41,6 +41,9 @@
         <h4>Your score: <b id="post_score"></b></h4>
         <button onclick="startGame()" class="btn btn-info">Play again</button>
     </div>
+    <a href="https://github.com/Themis3000/wikihow_guess" target="_blank">
+        <img id="git_link" alt="github logo" src="github_logo.svg"/>
+    </a>
     <script src="script.js"></script>
 </body>
 </html>
