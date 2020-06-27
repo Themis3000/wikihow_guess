@@ -38,7 +38,7 @@ function startGame() {
     health = 3;
     points = 0;
     options = 6;
-    timerStart = 30;
+    timerStart = 45;
     hintsDisplay.innerText = hints;
     livesDisplay.innerText = health;
     startRound();
@@ -52,6 +52,8 @@ function optionClick(x) {
     } else {
         --health;
         livesDisplay.innerText = health;
+        let option = document.getElementById(`option${x}`)
+        option.className = "option btn btn-danger";
         if (health < 1)
             endGame()
     }
@@ -69,6 +71,7 @@ function startRound() {
         let optionButton = document.createElement("button");
         optionButton.onclick = function () {optionClick(articleIndex)}
         optionButton.id = `option${articleIndex}`;
+        optionButton.className = "option btn btn-secondary";
         optionButton.innerText = articles[articleIndex]["title"];
         optionsDisplay.appendChild(optionButton);
     }

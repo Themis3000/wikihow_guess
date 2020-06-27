@@ -20,6 +20,22 @@
     flex-wrap: wrap;
 }
 
+#options_display {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.option {
+    flex-grow: 1;
+    padding: 5px;
+    margin:0 1px;
+}
+
+#hint_display {
+    text-align: center;
+}
+
 .center {
     text-align: center;
     display: inline-block;
