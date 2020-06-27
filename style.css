@@ -1,3 +1,31 @@
+html, body {
+    padding: 0;
+    background-color: #111;
+    color: #EEE;
+}
+
+button {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #FFF;
+    padding: 5px 10px 5px 10px;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 50000px;
+}
+
+button:hover {
+    background-color: #28F;
+}
+
+#start_button {
+    position: absolute;
+    width: 75%;
+    font-size: 3em;
+    right: 12.5%;
+}
+
 #game_div {
     display: none;
 }
@@ -26,12 +54,6 @@
     justify-content: center;
 }
 
-.option {
-    flex-grow: 1;
-    padding: 5px;
-    margin:0 1px;
-}
-
 #timer_container {
     display: flex;
     justify-content: center;
@@ -56,9 +78,10 @@
     margin: 20px;
 }
 
-.center_div {
+.center {
   margin: auto;
   width: 50%;
   padding: 10px;
   text-align: center;
 }
+
