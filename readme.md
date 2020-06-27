@@ -8,7 +8,7 @@ https://themis3000.github.io/wikihow_guess.
 * Use the "hint" button to get another image from the article to help your guess, you may only use 4 hints per game
 * The game ends when you either run out of hearts or the timer runs out of time
 
-My high score is 5 and the highest score I've seen someone get was 12 by "Kepha_", see if you can beat it.
+My high score is 5 and the highest score I've seen someone get was 12 by @Beaux44, see if you can beat it.
 
 ### Wait, so why are you web scraping?
 Yes, I know this seems like a bad way of doing it, especially sense there's a url (https://www.wikihow.com/Special:Randomizer)
