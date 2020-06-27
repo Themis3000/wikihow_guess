@@ -25,6 +25,7 @@ gameDataRequest.onreadystatechange = function() {
         gameData = JSON.parse(gameDataRequest.responseText);
         let startButton = document.getElementById('start_button');
         startButton.innerText = "Play";
+        startButton.disabled = false;
     }
 }
 gameDataRequest.open("GET", "/wikihow_guess/articles_dir.txt");
@@ -54,6 +55,7 @@ function optionClick(x) {
         livesDisplay.innerText = health;
         let option = document.getElementById(`option${x}`)
         option.className = "option btn btn-danger";
+        option.disabled = true;
         if (health < 1)
             endGame()
     }
