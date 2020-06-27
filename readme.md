@@ -8,6 +8,8 @@ https://themis3000.github.io/wikihow_guess.
 * Use the "hint" button to get another image from the article to help your guess, you may only use 4 hints per game
 * The game ends when you either run out of hearts or the timer runs out of time
 
+My highest score is 5, can you beat it?
+
 ### Wait, so why are you web scraping?
 Yes, I know this seems like a bad way of doing it, especially sense there's a url (https://www.wikihow.com/Special:Randomizer)
 that just returns a random article. But that being said, I want this project to be backendless (well, meaning a static backend)
