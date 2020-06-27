@@ -27,7 +27,7 @@ gameDataRequest.onreadystatechange = function() {
         startButton.innerText = "Play";
     }
 }
-gameDataRequest.open("GET", "/articles_dir.txt");
+gameDataRequest.open("GET", "/wikihow_guess/articles_dir.txt");
 gameDataRequest.send();
 
 function startGame() {

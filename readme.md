@@ -1,7 +1,12 @@
 # Wikihow guessing game
-Well, not yet. Right now it's just a wikihow webscraper. Soon to be a proper game that runs right in your browser though.
-It's inspired by the googlefeud game, except where you are given an image or set of images and you must guess the article
-name from a selection for points.
+Front end is in a pretty crappy, hopefully temporary state right now, but it can be viewed and played at
+https://themis3000.github.io/wikihow_guess.
+
+##### rules:
+* Guess the correct article name to go with the provided image
+* Every time you guess an incorrect name you will lose a life
+* Use the "hint" button to get another image from the article to help your guess, you may only use 4 hints per game
+* The game ends when you either run out of hearts or the timer runs out of time
 
 ### Wait, so why are you web scraping?
 Yes, I know this seems like a bad way of doing it, especially sense there's a url (https://www.wikihow.com/Special:Randomizer)
