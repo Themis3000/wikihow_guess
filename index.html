@@ -19,15 +19,18 @@
         <button id="start_button" onclick="startGame()">loading...</button>
     </div>
     <div id="game_div">
-        <b id="timer_display"></b>
         <div id="image_display"></div>
         <div id="options_display"></div>
         <div id="hint_display">
             <button id="hint_button" onclick="displayHint()">Get a hint (<b id="hints_left"></b>) left</button>
         </div>
         <div id="stats_box">
+            <div id="timer_container">
+                <img alt="timer icon" src="timer.svg"/>
+                <h4><b id="timer_display"></b></h4>
+            </div>
             <h4><b id="score"></b> points</h4>
-            <h4><b id="health"></b> hearts</h4>
+            <h4><b id="health"></b> lives</h4>
         </div>
     </div>
     <div id="post_game_div">

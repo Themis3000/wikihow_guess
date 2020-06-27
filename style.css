@@ -32,6 +32,17 @@
     margin:0 1px;
 }
 
+#timer_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#timer_display {
+    padding: 5px;
+    margin:0 1px;
+}
+
 #hint_display {
     text-align: center;
 }
