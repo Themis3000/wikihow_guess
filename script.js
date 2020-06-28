@@ -8,12 +8,13 @@ const postScore = document.getElementById("post_score");
 const scoreDisplay = document.getElementById("score");
 const hintsDisplay = document.getElementById("hints_left");
 const livesDisplay = document.getElementById("health");
+let cachedRounds = [];
+let articles;
+let chosenArticleIndex;
 let gameData;
 let health;
 let points;
 let options;
-let chosenArticleIndex;
-let articles;
 let hintPos;
 let timerStart;
 let timer;
@@ -23,6 +24,7 @@ let gameDataRequest = new XMLHttpRequest();
 gameDataRequest.onreadystatechange = function() {
     if (gameDataRequest.readyState === 4 && gameDataRequest.status === 200) {
         gameData = JSON.parse(gameDataRequest.responseText);
+        cacheRounds(5, 2);
         let startButton = document.getElementById('start_button');
         startButton.innerText = "Play";
         startButton.disabled = false;
@@ -31,6 +33,8 @@ gameDataRequest.onreadystatechange = function() {
 gameDataRequest.open("GET", "/wikihow_guess/articles_dir.txt");
 gameDataRequest.send();
 
+options = 6;
+
 function startGame() {
     instructionsDiv.style.display = "none";
     postGameDiv.style.display = "none";
@@ -38,7 +42,6 @@ function startGame() {
     hints = 4;
     health = 3;
     points = 0;
-    options = 6;
     timerStart = 45;
     hintsDisplay.innerText = hints;
     livesDisplay.innerText = health;
@@ -65,9 +68,11 @@ function startRound() {
     scoreDisplay.innerText = points;
     optionsDisplay.innerHTML = "";
     imageDisplay.innerHTML = "";
-    articles = shuffleArray(getRandomArticles(gameData, options));
-    chosenArticleIndex = Math.floor(Math.random() * articles.length);
+    let cachedArticles = cachedRounds.shift();
+    articles = cachedArticles["articles"];
+    chosenArticleIndex = cachedArticles["correct_index"];
     hintPos = 0;
+    cacheRounds(1, 2);
     displayHint(false);
     for (let articleIndex in articles) {
         let optionButton = document.createElement("button");
@@ -100,6 +105,35 @@ function endGame() {
     postScore.innerText = points;
 }
 
+function cacheRounds(rounds=5, imagesPerRound=2) {
+    let chosenArticleIndexCache;
+    let articlesCache;
+    for (let round=0; round<rounds; round++) {
+        articlesCache = getRandomArticles(options);
+        chosenArticleIndexCache = Math.floor(Math.random() * articlesCache.length);
+        articlesCache[chosenArticleIndexCache]["images"] = shuffleArray(articlesCache[chosenArticleIndexCache]["images"]);
+        for (let image=0; image<imagesPerRound; image++)
+            cacheImg(articlesCache[chosenArticleIndexCache]["images"][image]);
+        cachedRounds.push({"articles": articlesCache, "correct_index": chosenArticleIndexCache});
+    }
+}
+
+function cacheImg(src) {
+    let temp_img = new Image();
+    temp_img.src = src;
+    temp_img.onerror = function () {cacheImgErrorHandler(src)};
+}
+
+function cacheImgErrorHandler(src) {
+    for (let key in cachedRounds) {
+        if (cachedRounds[key][cachedRounds[key]["correct_index"]]["images"].includes(src)) {
+            cachedRounds.remove(key);
+            cacheRounds(1, 2);
+            break;
+        }
+    }
+}
+
 function shuffleArray(a) {
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
@@ -111,18 +145,18 @@ function shuffleArray(a) {
     return a;
 }
 
-function getRandomArticles(arr, n) {
+function getRandomArticles(n) {
     let x;
     let requiredLen = 3;
     var result = new Array(n),
-        len = arr.length,
+        len = gameData.length,
         taken = new Array(len);
     if (n > len)
         throw new RangeError("getRandom: more elements taken than available");
     while (n--) {
         while (typeof result[n] === 'undefined' || result[n]["images"].length < requiredLen) {
             x = Math.floor(Math.random() * len);
-            result[n] = arr[x in taken ? taken[x] : x];
+            result[n] = gameData[x in taken ? taken[x] : x];
         }
         taken[x] = --len in taken ? taken[len] : len;
     }
