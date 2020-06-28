@@ -38,6 +38,10 @@ button:hover:not([disabled]) {
 
 #game_div {
     display: none;
+    flex-direction: column;
+    align-content: space-between;
+    align-items: stretch;
+    height: 90vh;
 }
 
 #post_game_div {
