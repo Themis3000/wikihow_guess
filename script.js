@@ -126,8 +126,8 @@ function cacheImg(src) {
 
 function cacheImgErrorHandler(src) {
     for (let key in cachedRounds) {
-        if (cachedRounds[key][cachedRounds[key]["correct_index"]]["images"].includes(src)) {
-            cachedRounds.remove(key);
+        if (cachedRounds[key]["articles"][cachedRounds[key]["correct_index"]]["images"].includes(src)) {
+            cachedRounds.splice(key, 1);
             cacheRounds(1, 2);
             break;
         }
