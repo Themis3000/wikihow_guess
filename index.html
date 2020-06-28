@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Wikihow game</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="instructions">
@@ -19,17 +20,19 @@
     </div>
     <div id="game_div">
         <div id="image_display"></div>
-        <div id="options_display"></div>
-        <div id="hint_display">
-            <button id="hint_button" onclick="displayHint()">Get a hint (<b id="hints_left"></b> left)</button>
-        </div>
-        <div id="stats_box">
-            <div id="timer_container">
-                <img alt="timer icon" src="timer.svg"/>
-                <h4><b id="timer_display"></b></h4>
+        <div class="not-img-box">
+            <div id="options_display"></div>
+            <div id="hint_display">
+                <button id="hint_button" onclick="displayHint()">Get a hint (<b id="hints_left"></b> left)</button>
             </div>
-            <h4><b id="score"></b> points</h4>
-            <h4><b id="health"></b> lives</h4>
+            <div id="stats_box">
+                <div id="timer_container">
+                    <img alt="timer icon" src="timer.svg"/>
+                    <h4><b id="timer_display"></b></h4>
+                </div>
+                <h4><b id="score"></b> points</h4>
+                <h4><b id="health"></b> lives</h4>
+            </div>
         </div>
     </div>
     <div id="post_game_div" class="center">
@@ -38,7 +41,7 @@
         <button onclick="startGame()">Play again</button>
     </div>
     <a href="https://github.com/Themis3000/wikihow_guess" target="_blank">
-        <img id="git_link" alt="github logo" src="github_logo.svg"/>
+        <div id="git_link"><img alt="github logo" src="github_logo.svg"/></div>
     </a>
     <script src="script.js"></script>
 </body>
