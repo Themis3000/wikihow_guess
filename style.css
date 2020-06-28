@@ -1,5 +1,47 @@
+html, body {
+    padding: 0;
+    background-color: #111;
+    color: #EEE;
+    font-family: 'Montserrat', sans-serif;
+}
+
+button {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #FFF;
+    padding: 5px 10px 5px 10px;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 50000px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+button[disabled] {
+    background-color: #A22;
+    cursor: default;
+    color: #CCC;
+}
+
+button:hover:not([disabled]) {
+    background-color: #28F;
+}
+
+#start_button {
+    position: absolute;
+    width: 75%;
+    font-size: 3em;
+    right: 12.5%;
+    margin-top: 2em;
+}
+
 #game_div {
     display: none;
+    flex-direction: column;
+    align-content: space-between;
+    align-items: stretch;
+    height: 90vh;
 }
 
 #post_game_div {
@@ -9,38 +51,53 @@
 #stats_box {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+}
+
+#stats_box > * {
+    flex-basis: 33%;
+}
+
+#stats_box > :nth-child(2) {
+    text-align: center;
+}
+
+#stats_box > :last-child {
+    text-align: right;
 }
 
 #image_display {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
+    align-content: space-between;
+}
+
+#image_display img {
+    display: flex;
+    border: #0F0 2px solid;
+    border-radius: 20px;
 }
 
 #options_display {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-}
-
-.option {
-    flex-grow: 1;
-    padding: 5px;
-    margin:0 1px;
+    justify-content: space-around;
+    margin: 20px 0 20px 0;
 }
 
 #timer_container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
 #timer_display {
     padding: 5px;
-    margin:0 1px;
+    margin: 0 1px;
+    width: 20px;
 }
 
 #hint_display {
@@ -51,14 +108,30 @@
     height: 48px;
     width: 48px;
     position: absolute;
-    bottom: 0;
-    right: 0;
-    margin: 20px;
+    bottom: 20px;
+    right: 20px;
+    background: #AF1700;
+    background: linear-gradient(141deg, #F20 10%, #EDFF00 40%, #62FF4E 65%, #00FFF8 92%);
+    padding: 5px;
+    border-radius: 200px;
+    transition: transform 0.2s ease-in-out;
 }
 
-.center_div {
+#git_link:hover {
+    transform: scale(1.15);
+}
+
+.center {
   margin: auto;
   width: 50%;
   padding: 10px;
   text-align: center;
 }
+
+.option {
+    display: flex;
+    flex-basis: 15%;
+    justify-content: center;
+    align-items: center;
+}
+

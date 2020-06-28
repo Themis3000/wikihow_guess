@@ -22,6 +22,7 @@ let hints;
 
 //Load game data and start image caching
 let gameDataRequest = new XMLHttpRequest();
+
 gameDataRequest.onreadystatechange = function() {
     if (gameDataRequest.readyState === 4 && gameDataRequest.status === 200) {
         gameData = JSON.parse(gameDataRequest.responseText);
@@ -30,7 +31,13 @@ gameDataRequest.onreadystatechange = function() {
         startButton.innerText = "Play";
         startButton.disabled = false;
     }
-}
+};
+
+gameDataRequest.ontimeout = function() {
+    alert("timed out hecc");
+};
+
+gameDataRequest.timeout = 5000;
 gameDataRequest.open("GET", "/wikihow_guess/articles_dir.txt");
 gameDataRequest.send();
 
@@ -39,7 +46,7 @@ options = 6;
 function startGame() {
     instructionsDiv.style.display = "none";
     postGameDiv.style.display = "none";
-    gameDiv.style.display = "block";
+    gameDiv.style.display = "flex";
     hints = 4;
     health = 3;
     points = 0;
