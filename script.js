@@ -20,6 +20,7 @@ let timerStart;
 let timer;
 let hints;
 
+//Load game data and start image caching
 let gameDataRequest = new XMLHttpRequest();
 gameDataRequest.onreadystatechange = function() {
     if (gameDataRequest.readyState === 4 && gameDataRequest.status === 200) {
@@ -84,6 +85,7 @@ function startRound() {
     }
 }
 
+//TODO Lock display hint button when appropriate
 function displayHint(deductHint=true) {
     if (deductHint)
         if (hints > 0){

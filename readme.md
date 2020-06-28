@@ -1,6 +1,5 @@
 # Wikihow guessing game
-Front end is in a pretty crappy, hopefully temporary state right now, but it can be viewed and played at
-https://themis3000.github.io/wikihow_guess.
+Game can be played at https://themis3000.github.io/wikihow_guess. Currently not mobile friendly, may be in the future.
 
 ##### rules:
 * Guess the correct article name to go with the provided image
