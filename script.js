@@ -39,7 +39,7 @@ options = 6;
 function startGame() {
     instructionsDiv.style.display = "none";
     postGameDiv.style.display = "none";
-    gameDiv.style.display = "block";
+    gameDiv.style.display = "flex";
     hints = 4;
     health = 3;
     points = 0;

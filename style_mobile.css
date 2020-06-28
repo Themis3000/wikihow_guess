@@ -1,0 +1,21 @@
+#instructions {
+    text-align: center;
+}
+
+.option {
+
+}
+
+#game_div {
+    flex-direction: column;
+}
+
+#stats_box {
+    order: -1;
+    justify-content: space-between;
+}
+
+#options_display {
+    flex-direction: column;
+    height: 100%;
+}
