@@ -1,13 +1,13 @@
 # Wikihow guessing game
 Game can be played at https://themis3000.github.io/wikihow_guess. Currently not mobile friendly, may be in the future.
 
-##### Oh yeah, I've heard so that game before!
+#### Oh yeah, I've heard so that game before!
 Is exactly what my friend told me as soon as I started explaining the game. Well I never heard of it, I thought I finally
 came up with an original idea :(. Comparing the 2 this is a little different though, and in my definitely unbiased opinion
 maybe even a little better. Ok, maybe not better in the site layout but better in the gamification. You can play the already
 existing version here if you wish: [damn.dog](https://damn.dog/)
 
-##### rules:
+#### rules:
 * Guess the correct article name to go with the provided image
 * Every time you guess an incorrect name you will lose a life
 * Use the "hint" button to get another image from the article to help your guess, you may only use 4 hints per game
