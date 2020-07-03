@@ -26,7 +26,7 @@ gameDataRequest.onreadystatechange = function() {
     if (gameDataRequest.readyState === 4 && gameDataRequest.status === 200) {
         gameData = JSON.parse(gameDataRequest.responseText);
         cacheRounds(5, 2);
-        let startButton = document.getElementById('start_button');
+        let startButton = document.getElementById('main_start_button');
         startButton.innerText = "Play";
         startButton.disabled = false;
     }

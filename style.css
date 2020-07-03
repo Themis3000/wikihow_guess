@@ -1,5 +1,6 @@
 #game_div {
     display: none;
+    flex-direction: column;
 }
 
 #post_game_div {
