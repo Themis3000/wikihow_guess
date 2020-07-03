@@ -1,0 +1,83 @@
+#instructions {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    font-size: 2em;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#game_div {
+    flex-direction: column;
+}
+
+#stats_box {
+    order: -99;
+    justify-content: space-evenly;
+}
+
+#image_display {
+    order: 0;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding-top: 75%;
+    position: relative;
+}
+
+.start_button {
+    width: 100%;
+    height: 100%;
+    font-size: 400% !important;
+}
+
+.start_button_container {
+    padding-top: 50%;
+    height: 50%;
+}
+
+#image_display > img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#game_div > div > button {
+    font-size: 220%;
+    margin: 0;
+}
+
+#hint_display {
+    order: 1;
+    height: 20%;
+}
+
+#hint_button {
+    width: 100%;
+    height: 100%;
+}
+
+#post_game_div {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+#game_div {
+    width:100%;
+    height:100%;
+    position:fixed;
+}
+
+#options_display {
+    flex-direction: column;
+    order: 99;
+    height: 100%;
+}

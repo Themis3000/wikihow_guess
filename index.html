@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Wikihow game</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="style_mobile.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
@@ -16,10 +17,12 @@
             <li>Use the "hint" button to get another image from the article to help your guess, you may only use 4 hints per game</li>
             <li>The game ends when you either run out of lives or the timer runs out of time</li>
         </ul>
-        <button id="start_button" class="btn btn-info" onclick="startGame()" disabled>
-            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            loading...
-        </button>
+        <div class="start_button_container">
+            <button id="main_start_button" class="start_button btn btn-info" onclick="startGame()" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                loading...
+            </button>
+        </div>
     </div>
     <div id="game_div">
         <div id="image_display"></div>
@@ -39,19 +42,13 @@
     <div id="post_game_div" class="center_div">
         <h2>Game over!</h2>
         <h4>Your score: <b id="post_score"></b></h4>
-        <button onclick="startGame()" class="btn btn-info">Play again</button>
+        <div class="start_button_container">
+            <button onclick="startGame()" class="start_button btn btn-info">Play again</button>
+        </div>
     </div>
     <a href="https://github.com/Themis3000/wikihow_guess" target="_blank">
         <img id="git_link" alt="github logo" src="github_logo.svg"/>
     </a>
     <script src="script.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171020052-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-171020052-1');
-    </script>
 </body>
 </html>

@@ -26,7 +26,7 @@ gameDataRequest.onreadystatechange = function() {
     if (gameDataRequest.readyState === 4 && gameDataRequest.status === 200) {
         gameData = JSON.parse(gameDataRequest.responseText);
         cacheRounds(5, 2);
-        let startButton = document.getElementById('start_button');
+        let startButton = document.getElementById('main_start_button');
         startButton.innerText = "Play";
         startButton.disabled = false;
     }
@@ -39,7 +39,7 @@ options = 6;
 function startGame() {
     instructionsDiv.style.display = "none";
     postGameDiv.style.display = "none";
-    gameDiv.style.display = "block";
+    gameDiv.style.display = "flex";
     hints = 4;
     health = 3;
     points = 0;
