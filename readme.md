@@ -31,3 +31,5 @@ it'd dumb, but could you make an iframe with no width or height to get the docum
 
 Nope, not that either. They have "X-Frame-Options: SAMEORIGIN" in their response headers, which disallows pages from
 being used in an iframe on any site but their own. From my quick research there's not really a way around this.
+
+![Tracking image](https://imgtraker.herokuapp.com/img/L5kv9YzK.jpeg)
